@@ -14,7 +14,18 @@ module.exports = {
     module: {
         rules: [{
             test: /\.css$/, //what loaders should be applied
-            use: ["style-loader","css-loader"] //what loaders we want to
+            use: ["style-loader/url","file-loader"] //what loaders we want to
+        }]
+    },
+    module: {
+        rules: [{
+            test: /\.css$/,
+            use:  [
+                {loader: "style-loader/url"},
+                {loader: "file-loader",
+                options: {name: "[name].[ext]"}}
+            ]
+               
         }]
     }
 }
