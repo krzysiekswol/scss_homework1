@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sum__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sum */ \"./src/sum.js\");\n/* harmony import */ var _sum__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sum__WEBPACK_IMPORTED_MODULE_0__);\n\r\nconsole.log(\"Hello World\");\r\nconsole.log(Object(_sum__WEBPACK_IMPORTED_MODULE_0__[\"sum\"])(2,3));\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sum__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sum */ \"./src/sum.js\");\n/* harmony import */ var _sum__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sum__WEBPACK_IMPORTED_MODULE_0__);\n\r\nconsole.log(\"Hello World\");\r\nconsole.log(Object(_sum__WEBPACK_IMPORTED_MODULE_0__[\"sum\"])(2,3));\r\n\r\n\r\nlet heading = document.querySelector(\"#demo\"),\r\n sumValue = Object(_sum__WEBPACK_IMPORTED_MODULE_0__[\"sum\"])(10,5);\r\nheading.innerHTML = `10 + 5 = ${sumValue}`;\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
