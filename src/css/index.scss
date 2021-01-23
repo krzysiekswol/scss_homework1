@@ -1,12 +1,82 @@
-body {
-    background-color: lightpink;
+// zmienne scss
+$fontSizeBig: 50px;
+$fontSizeNormal: $fontSizeBig / 2;
+$fontSizeSmaller: 15px;
+$colorWhite: #fff;
+$width: 100%;
+$height: 100%;
+
+@mixin size ($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+
+
+html, body {
+	margin: 0;
+	padding: 0;
+  @include size ($width, $height);
+}
+
+.intro {
+  @include size($width, $height);
+	margin: auto;
+	background: url(https://images.pexels.com/photos/34950/pexels-photo.jpg?w=940&h=650&auto=compress&cs=tinysrgb) no-repeat; 
+	display: table;
+	top: 0;
+  background-size: cover;
+  .inner {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.content {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+      h1 {font-family: 'Orbitron', sans-serif; color:$colorWhite; font-size: $fontSizeBig; text-shadow: 0px 0px 300px #000;
+      }
+      .btn {
+      border-radius: 9px;
+      color: $colorWhite;
+      font-size: $fontSizeNormal;
+      padding: 10px 20px;
+      border: solid #000 2px;
+      text-decoration: none;
+      text-transform: uppercase;
+      &:hover{color: $colorWhite;
+        border: solid $colorWhite 3px;}
+    }
+}
+
+
+
+p {
+	font-size: $fontSizeSmaller;
+	line-height: 2em;
+	text-align: justify;
+	margin: 10px;
+	font-family: 'Orbitron', sans-serif;
+}
+
+/* Media Querias to Adjust to Ipad or Mobiles (iPhone7 ex.) */
+
+@media screen and (max-width: 768px) {
+	.content{
     h1 {
-        color: blue;
-        font-weight: bold;
-        font-style: italic;
+      font-size: $fontSizeSmaller * 2;
     }
-    
-    h2{
-        color: red;
-    }
+    .btn {
+      font-size: $fontSizeSmaller;
+      padding: 7px 15px;
+    }}
+  
+	p {
+		font-size: $fontSizeSmaller - 3;
+		line-height: 1.5em;
+	}
 }
