@@ -1,16 +1,63 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin"); 
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
+const autoprefixer = require("autoprefixer");
+const webpack = require("webpack");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    "index": "./src/index.js",
+  }, 
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    filename: "[name].[contenthash].bundle.js",
   },
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    // contentBase: path.join(__dirname, "dist"),
     port: 9000,
-    watchContentBase: true,
+    // watchContentBase: true,
   },
+  plugins: [
+        new HtmlWebpackPlugin({
+          template: "./src/index.html"}),
+          new HtmlWebpackPlugin({
+            template: './src/kontakt.html',
+            inject: true,
+            chunks: ['index'],
+            filename: 'kontakt.html'
+          }),
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+          filename: "[name].[hash].css"
+        }),
+       new OptimizeCssAssetsPlugin({
+          assetNameRegExp: /\.css$/
+       }),
+       new BrowserSyncPlugin({
+          host: 'localhost',
+          port: 9000,
+          proxy: 'http://localhost:9000'
+        }, {
+          reload: false
+        }),
+        new webpack.LoaderOptionsPlugin({
+          options: {
+          postcss: [
+          autoprefixer()
+          ]
+          }
+        }),
+         new CopyWebpackPlugin([{
+          from: './src/assets',
+          to: './dest/assets'
+        }]),
+  ],
+  
   // module: {
   //     rules: [{
   //         test: /\.css$/, //what loaders should be applied
@@ -21,7 +68,12 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"], //dopisanie komponentu
+        use: [
+        //  "style-loader",
+        MiniCssExtractPlugin.loader,
+        "css-loader",
+        "sass-loader",
+        "postcss-loader"]
       },
       {
         test: /\.js$/,
@@ -32,6 +84,19 @@ module.exports = {
             presets: ["@babel/preset-env"],
           },
         },
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "[name].[ext]"
+          }
+        }
+      },
+      {
+        test: /\.(html)$/,
+        use: ["html-loader"]
       },
     ],
   },
