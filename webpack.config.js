@@ -58,23 +58,19 @@ module.exports = {
         }]),
   ],
   
-  // module: {
-  //     rules: [{
-  //         test: /\.css$/, //what loaders should be applied
-  //         use: ["style-loader/url","file-loader"] //what loaders we want to
-  //     }]
-  // },
+  
   module: {
     rules: [
+      
       {
         test: /\.scss$/,
-        use: [
-        //  "style-loader",
-        MiniCssExtractPlugin.loader,
-        "css-loader",
+        use: [//"style-loader",
+        MiniCssExtractPlugin.loader, 
+        "css-loader", 
         "sass-loader",
         "postcss-loader"]
       },
+
       {
         test: /\.js$/,
         exclude: /node_modules/,
