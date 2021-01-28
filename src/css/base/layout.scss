@@ -1,0 +1,25 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  @include colors(#73b7e1);
+  margin: 0 auto;
+}
+
+nav {
+  text-align: center;
+  margin-top: 6em;
+  background-color: rgba(256, 256, 256, 0.5);
+  height: 3.75em;
+  padding: 0px 40px;
+  li {
+    display: $displayIB;
+    padding: 5px 30px;
+    font-weight: 400;
+    font-size: 1.2em;
+    margin: 10px;
+  }
+}
+.half-column {
+  display: $displayIB;
+  width: 40%;
+  padding: 50px 0px 10px 20px;
+}

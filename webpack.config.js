@@ -7,6 +7,7 @@ const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const autoprefixer = require("autoprefixer");
 const webpack = require("webpack");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const PrettierPlugin = require("prettier-webpack-plugin");
 
 
 module.exports = {
@@ -25,12 +26,12 @@ module.exports = {
   plugins: [
         new HtmlWebpackPlugin({
           template: "./src/index.html"}),
-          new HtmlWebpackPlugin({
-            template: './src/kontakt.html',
-            inject: true,
-            chunks: ['index'],
-            filename: 'kontakt.html'
-          }),
+          // new HtmlWebpackPlugin({
+          //   template: './src/kontakt.html',
+          //   inject: true,
+          //   chunks: ['index'],
+          //   filename: 'kontakt.html'
+          // }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
           filename: "[name].[hash].css"
@@ -56,6 +57,7 @@ module.exports = {
           from: './src/assets',
           to: './dest/assets'
         }]),
+        new PrettierPlugin(),
   ],
   
   

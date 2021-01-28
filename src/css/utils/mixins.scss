@@ -1,0 +1,8 @@
+@mixin fontStyle($fontSize, $lineHeight) {
+  font-size: $fontSize;
+  line-height: $lineHeight;
+}
+@mixin colors($bgc) {
+  background: $bgc;
+  color: $colorWhite;
+}

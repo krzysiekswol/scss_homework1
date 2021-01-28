@@ -42,5 +42,9 @@
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.7.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1",
+    "prettier-webpack-plugin": "^1.2.0"
   }
 }

@@ -1,0 +1,29 @@
+.landing-copy {
+  margin-left: 70px;
+  p {
+    @include fontStyle(1.3em, 1.4em);
+  }
+  h1 {
+    @include fontStyle(3em, 1.2em);
+  }
+  .cta-button {
+    border: 2px solid $colorWhite;
+    border-radius: 50px;
+    @include colors(#d469a5);
+    font-weight: 700;
+    padding: 5px 20px;
+    float: right;
+    &:hover {
+      background-color: #fa75ad;
+      text-decoration: $textdecor_none;
+    }
+  }
+}
+
+a {
+  color: #472063;
+  text-decoration: $textdecor_none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
